@@ -4,8 +4,10 @@ Operator that allows you to use [Kubernetes LoadBalancer Service](https://kubern
 ## Howto use?
 ### Label nodes
 ```
-kubectl label <node name> simplelb.amurant.io/enablelb=true
+kubectl label node <node name> simplelb.amurant.io/enablelb=true
 kubectl get nodes --show-labels
+# remove a label:
+kubectl label node <node name> simplelb.amurant.io/enablelb-
 ```
 ### Deploy operator
 ```
