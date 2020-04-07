@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simplelb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: simplelb
+  template:
+    metadata:
+      labels:
+        name: simplelb
+    spec:
+      serviceAccountName: simplelb
+      containers:
+        - name: simplelb
+          image: REPLACE_IMAGE
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 20M
+              cpu: 100m
+            limits:
+              memory: 100M
+              cpu: 200m
+          command:
+          - simplelb
+          env:
+            - name: WATCH_NAMESPACE
+              value: ""
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "simplelb"
