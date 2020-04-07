@@ -15,7 +15,7 @@ spec:
       serviceAccountName: simplelb
       containers:
         - name: simplelb
-          image: REPLACE_IMAGE
+          image: registry.gitlab.com/amurant/simplelb:latest
           imagePullPolicy: Always
           resources:
             requests:
