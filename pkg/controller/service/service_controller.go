@@ -27,7 +27,7 @@ import (
 var log = logf.Log.WithName("controller_service")
 
 const (
-	lbImage            = "registry.gitlab.com/amurant/simplelb-portforward:latest"
+	lbImage            = "registry.gitlab.com/amurant/simplelb/slb-portforward:latest"
 	svcNameLabel       = "simplelb.amurant.io/svcname"
 	svcHashAnnotation  = "simplelb.amurant.io/svchash"
 	daemonsetNodeLabel = "simplelb.amurant.io/enablelb"

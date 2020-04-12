@@ -16,7 +16,7 @@ spec:
       serviceAccountName: simplelb
       containers:
         - name: simplelb
-          image: registry.gitlab.com/amurant/simplelb:latest
+          image: registry.gitlab.com/amurant/simplelb/slb-operator:latest
           imagePullPolicy: Always
           resources:
             requests:
