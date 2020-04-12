@@ -27,7 +27,7 @@ import (
 var log = logf.Log.WithName("controller_service")
 
 const (
-	lbImage            = "rancher/klipper-lb:v0.1.2"
+	lbImage            = "registry.gitlab.com/amurant/simplelb-portforward:latest"
 	svcNameLabel       = "simplelb.amurant.io/svcname"
 	svcHashAnnotation  = "simplelb.amurant.io/svchash"
 	daemonsetNodeLabel = "simplelb.amurant.io/enablelb"
