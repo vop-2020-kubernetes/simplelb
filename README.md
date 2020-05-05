@@ -15,7 +15,7 @@ kubectl create -f simplelb/deploy
 ```
 ### Deploy example app (optional)
 ```
-kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4
 
 kubectl expose deployment hello-node --type=LoadBalancer --port=8080
 ```
