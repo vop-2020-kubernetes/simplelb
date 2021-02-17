@@ -289,6 +289,9 @@ func newDaemonSetForService(svc *corev1.Service) *appsv1.DaemonSet {
 			Template: corev1.PodTemplateSpec{
 				ObjectMeta: metav1.ObjectMeta{
 					Labels: labels,
+					Annotations: map[string]string{
+						"sidecar.istio.io/inject": "false",
+					},
 				},
 				Spec: corev1.PodSpec{
 					Tolerations: []corev1.Toleration{
@@ -305,7 +308,7 @@ func newDaemonSetForService(svc *corev1.Service) *appsv1.DaemonSet {
 							Command: []string{
 								"sh",
 								"-c",
-								"sysctl -w net.ipv4.ip_forward=1",
+								"sudo sysctl -w net.ipv4.ip_forward=1",
 							},
 							SecurityContext: &corev1.SecurityContext{
 								Privileged: boolPointer(true),
